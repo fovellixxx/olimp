@@ -1,3 +1,4 @@
+
 '''Задача 1. «Все буквы разные?»
 
 Формулировка.
@@ -11,20 +12,27 @@ t = "abba" → NO
 
 Подсказка: можно сравнить длину строки и длину множества её букв.'''
 
-t = input()
+def task1(word,):
+    j = list(word)
 
-j = list(t)
+    counter = 0
 
-counter = 0
+    while counter<len(j):
+        counter2 = counter + 1
+        letter = j[counter]
+        while counter2<len(j):
+            if letter==j[counter2]:
+                return 'NO'
+            counter2+=1
+        counter+=1
+    return 'YES'
 
-while counter<len(j):
+if task1('abc') == 'YES':
+    print('Test #1 done')
+else:
+    print('Test #1 failed')
 
-    counter2 = counter + 1
-    letter = j[counter]
-    while counter2<len(j):
-        if letter==j[counter2]:
-            print('NO')
-            exit()
-        counter2+=1
-    counter+=1
-print('YES')
+if task1('abca') == 'NO':
+    print('Test #2 done')
+else:
+    print('Test #2 failed')
